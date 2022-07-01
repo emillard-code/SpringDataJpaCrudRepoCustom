@@ -22,7 +22,7 @@
     <br><br>
 
     <p>Get Programmer By Id</p>
-    <form action="getCoder">
+    <form action="getCoderById">
         ID: <input type="text" name="id"><br>
         <input type="submit"><br>
     </form>

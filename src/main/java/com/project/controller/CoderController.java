@@ -29,12 +29,27 @@ public class CoderController {
 
     }
 
-    @RequestMapping("/getCoder")
-    public ModelAndView getCoder(@RequestParam int id) {
+    @RequestMapping("/getCoderById")
+    public ModelAndView getCoderById(@RequestParam int id) {
 
         ModelAndView mv = new ModelAndView("getCoder.jsp");
         Coder coder = repository.findById(id).orElse(new Coder());
         mv.addObject(coder);
+
+        System.out.println(repository.findByIdGreaterThan(2));
+
+        return mv;
+
+    }
+
+    @RequestMapping("/getCoderByProgLanguage")
+    public ModelAndView getCoderByLanguage(@RequestParam int id) {
+
+        ModelAndView mv = new ModelAndView("getCoder.jsp");
+        Coder coder = repository.findById(id).orElse(new Coder());
+        mv.addObject(coder);
+
+        System.out.println(repository.findByProgLanguage("Java"));
 
         return mv;
 
