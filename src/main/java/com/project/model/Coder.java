@@ -13,11 +13,11 @@ public class Coder {
 
     public int getId() { return id; }
     public String getName() { return name; }
-    public String getLanguage() { return progLanguage; }
+    public String getProgLanguage() { return progLanguage; }
 
     public void setId(int id) { this.id = id; }
     public void setName(String name) { this.name = name; }
-    public void setLanguage(String progLanguage) { this.progLanguage = progLanguage; }
+    public void setProgLanguage(String progLanguage) { this.progLanguage = progLanguage; }
 
     @Override
     public String toString() {
