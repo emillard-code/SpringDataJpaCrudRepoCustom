@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -36,9 +37,19 @@ public class CoderController {
         Coder coder = repository.findById(id).orElse(new Coder());
         mv.addObject(coder);
 
+        System.out.println(repository.findByProgLanguage("Java"));
+        System.out.println(repository.findByIdGreaterThan(3));
         System.out.println(repository.findByProgLanguageSorted("Java"));
 
         return mv;
+
+    }
+
+    @RequestMapping("/allCoders")
+    @ResponseBody
+    public String getCoder() {
+
+        return repository.findAll().toString();
 
     }
 
