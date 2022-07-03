@@ -4,6 +4,7 @@ import com.project.model.Coder;
 import com.project.repository.CoderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,8 +31,8 @@ public class CoderController {
 
     }
 
-    @RequestMapping("/getCoderById")
-    public ModelAndView getCoderById(@RequestParam int id) {
+    @RequestMapping("/getCoder")
+    public ModelAndView getCoder(@RequestParam int id) {
 
         ModelAndView mv = new ModelAndView("getCoder.jsp");
         Coder coder = repository.findById(id).orElse(new Coder());
@@ -45,11 +46,19 @@ public class CoderController {
 
     }
 
-    @RequestMapping("/allCoders")
+    @RequestMapping("/getCoders")
     @ResponseBody
-    public String getCoder() {
+    public String getCoders() {
 
         return repository.findAll().toString();
+
+    }
+
+    @RequestMapping("/coder/{id}")
+    @ResponseBody
+    public String coderById(@PathVariable("id") int id) {
+
+        return repository.findById(id).toString();
 
     }
 
