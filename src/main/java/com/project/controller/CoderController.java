@@ -23,6 +23,7 @@ public class CoderController {
 
     }
 
+    // This endpoint is mainly called by the form in main.jsp.
     @RequestMapping("/addCoder")
     public String addProgrammer(Coder coder) {
 
@@ -31,6 +32,7 @@ public class CoderController {
 
     }
 
+    // This endpoint is mainly called by the form in main.jsp.
     @RequestMapping("/getCoder")
     public ModelAndView getCoder(@RequestParam int id) {
 
@@ -46,6 +48,8 @@ public class CoderController {
 
     }
 
+    // @ResponseBody annotation causes the String to be printed directly as text.
+    // (Rather than be treated as a file name)
     @RequestMapping("/getCoders")
     @ResponseBody
     public String getCoders() {
@@ -54,6 +58,8 @@ public class CoderController {
 
     }
 
+    // @ResponseBody annotation causes the String to be printed directly as text.
+    // (Rather than be treated as a file name)
     @RequestMapping("/coder/{id}")
     @ResponseBody
     public String coderById(@PathVariable("id") int id) {
